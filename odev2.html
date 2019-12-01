@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title>Roma Rakamı Çevirici</title>
+    
+</head>
+
+    <body>
+            <h1>Cem ERDOĞAN</h1>
+        
+            <input type="text" id="id1">
+            <button type="button" id="romann">Roma Rakamına Çevir</button>
+            <button  type="button" id="onlukk">Onluk Tabana Çevir</button>
+   
+            <script>
+                document.getElementById("romann").onclick = function (){
+                var sayi = document.getElementById("id1").value;
+                var roman_sayi = {M: 1000,CM: 900,D: 500,CD: 400,C: 100,XC: 90,L: 50,XL: 40,X: 10,IX: 9,V: 5,IV: 4,I: 1,m: 1000,cm: 900,d: 500,cd: 400,c: 100,xc: 90,l: 50,xl: 40,x: 10,ix: 9,v: 5,iv: 4,i: 1};
+                var sonuc;
+            
+                for (var i in roman_sayi) {
+                    while (sayi >= roman_sayi[i]){
+                        sonuc += i;
+                        sayi -= roman_sayi[i];
+                    }
+                }
+                alert(sonuc);
+                }
+
+            document.getElementById("onlukk").onclick = function (){
+                var sezar = document.getElementById("id1").value;
+                const romaliste = ["CM", "M", "CD", "D", "XC", "C", "XL", "L", "IX", "X", "IV", "V", "I"];
+                const karsiligi = [900, 1000, 400, 500, 90, 100, 40, 50, 9, 10, 4, 5, 1];
+                let işaret = 0;
+                let sonucc = 0;
+            
+                for (let j in romaliste){
+                    işaret = sezar.indexOf(romaliste[j]);
+                
+                    while (işaret != -1){
+                        sonucc += parseInt(karsiligi[j]);
+                        sezar = sezar.replace(romaliste[j]);
+                        işaret = sezar.indexOf(romaliste[j]);
+                    }
+                }
+                alert(sonucc);
+            }
+        </script>
+
+    </body>
+
+</html>
